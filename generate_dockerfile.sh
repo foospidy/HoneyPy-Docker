@@ -12,8 +12,8 @@ echo "MAINTAINER foospidy" >> $DOCKERFILE
 # install software
 echo "RUN apt-get update" >> $DOCKERFILE
 echo "RUN apt-get install -y wget unzip python python-pip python-requests python-twisted" >> $DOCKERFILE
-echo "RUN pip install twitter" >> $DOCKERFILE
 echo "RUN apt-get clean" >> $DOCKERFILE
+echo "RUN pip install pipreqs" >> $DOCKERFILE
 
 # create user
 echo "RUN useradd -ms /bin/bash honey" >> $DOCKERFILE
@@ -26,6 +26,7 @@ echo "RUN cd /opt && rm master.zip" >> $DOCKERFILE
 echo "RUN chmod +x /opt/HoneyPy/Honey.py" >> $DOCKERFILE
 echo "COPY etc/honeypy.cfg /opt/HoneyPy/etc/" >> $DOCKERFILE
 echo "COPY etc/services.cfg /opt/HoneyPy/etc/" >> $DOCKERFILE
+echo "RUN pipreqs --force /opt/HoneyPy" >> $DOCKERFILE
 echo "RUN chown -R honey:honey /opt/HoneyPy" >> $DOCKERFILE
 
 # set run user
