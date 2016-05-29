@@ -29,6 +29,12 @@ echo "COPY etc/services.cfg /opt/HoneyPy/etc/" >> $DOCKERFILE
 echo "RUN pipreqs --force /opt/HoneyPy" >> $DOCKERFILE
 echo "RUN chown -R honey:honey /opt/HoneyPy" >> $DOCKERFILE
 
+# setup ipt-kit
+echo "RUN cd /opt && wget https://github.com/foospidy/ipt-kit/archive/master.zip" >> $DOCKERFILE
+echo "RUN cd /opt && unzip master.zip" >> $DOCKERFILE
+echo "RUN cd /opt && mv ipt-kit-master ipt-kit" >> $DOCKERFILE
+echo "RUN cd /opt && rm master.zip" >> $DOCKERFILE
+
 # set run user
 echo "USER honey" >> $DOCKERFILE
 echo "WORKDIR /opt/HoneyPy" >> $DOCKERFILE
