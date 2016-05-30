@@ -14,7 +14,3 @@ Run the image in a contianer with an interactive console: `make run`
 Run the image in a container as a deamon: `make run-deamon`
 
 Clean up: `make clean`
-
-### Networking
-
-By default the `--net=host` parameter is used to expose connectivity to the host running the Docker container.
