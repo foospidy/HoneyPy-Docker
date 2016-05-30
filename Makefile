@@ -9,10 +9,10 @@ build-fresh:
 	docker build --no-cache -t foospidy/honeypy:latest .
 
 run:
-	docker run $(PORTSMAP) --net=host --rm -i -t foospidy/honeypy:latest /opt/HoneyPy/Honey.py
+	docker run $(PORTSMAP) --rm -i -t foospidy/honeypy:latest /opt/HoneyPy/Honey.py
 
 run-deamon:
-	docker run $(PORTSMAP) --net=host -d foospidy/honeypy:latest /opt/HoneyPy/Honey.py -d
+	docker run $(PORTSMAP) -d foospidy/honeypy:latest /opt/HoneyPy/Honey.py -d
 
 clean:
 	# remove ports.map file

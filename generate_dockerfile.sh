@@ -2,7 +2,7 @@
 
 DOCKERFILE=Dockerfile
 PORTMAP_FILE=ports.map
-IPADDRESS=''
+IPADDRESS='0.0.0.0'
 
 echo "# auto-generated Dockerfile" > $DOCKERFILE
 echo "FROM debian" >> $DOCKERFILE
@@ -54,7 +54,7 @@ index=0
 
 while [ "x${TCP_LPORTS[index]}" != "x" ]
 do
-    echo "EXPOSE ${TCP_HPORTS[$index]}/tcp" >> $DOCKERFILE
+    echo "EXPOSE ${TCP_LPORTS[$index]}/tcp" >> $DOCKERFILE
     echo -n "-p ${IPADDRESS}:${TCP_LPORTS[$index]}:${TCP_HPORTS[$index]}/tcp " >> $PORTMAP_FILE
     index=$(( index + 1 ))
 done
@@ -63,7 +63,7 @@ index=0
 
 while [ "x${UDP_LPORTS[index]}" != "x" ]
 do
-    echo "EXPOSE ${UDP_HPORTS[$index]}/udp" >> $DOCKERFILE
+    echo "EXPOSE ${UDP_LPORTS[$index]}/udp" >> $DOCKERFILE
     echo -n "-p ${IPADDRESS}:${UDP_LPORTS[$index]}:${UDP_HPORTS[$index]}/udp " >> $PORTMAP_FILE
     index=$(( index + 1 ))
 done
