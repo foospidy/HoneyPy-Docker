@@ -1,7 +1,9 @@
 # HoneyPy-Docker
-Build HoneyPy Docker Images
+Build a HoneyPy Docker Image
 
 To modify HoneyPy's configuration edit the two `.cfg` files in the etc directory. Then run `make build` to generate the Dockerfile and build the Docker image. For more details about HonePy see https://github.com/foospidy/HoneyPy/blob/master/README.md
+
+You can also find an image on hub.docker.com here: https://hub.docker.com/r/foospidy/honeypy/
 
 ### Usage
 
