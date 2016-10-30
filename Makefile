@@ -4,8 +4,16 @@ build:
 	./generate_dockerfile.sh
 	docker build -t foospidy/honeypy:latest .
 
+build-debian:
+	./generate_dockerfile.sh debian
+	docker build -t foospidy/honeypy:latest .
+
 build-fresh:
 	./generate_dockerfile.sh
+	docker build --no-cache -t foospidy/honeypy:latest .
+
+build-debian-fresh:
+	./generate_dockerfile.sh debian
 	docker build --no-cache -t foospidy/honeypy:latest .
 
 run:
@@ -35,4 +43,3 @@ clean:
 		done; \
 		docker rmi $$i; \
 	done;
-
