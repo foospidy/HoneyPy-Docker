@@ -24,7 +24,7 @@ if [ "alpine" = "${OS}" ];
 then
     echo "RUN apk update" >> $DOCKERFILE
     echo "RUN apk add wget unzip ca-certificates python py-pip py-setuptools python-dev musl-dev gcc" >> $DOCKERFILE
-    RUN update-ca-certificates
+    echo "RUN update-ca-certificates" >> $DOCKERFILE
     echo "RUN pip install requests" >> $DOCKERFILE
     echo "RUN pip install twisted" >> $DOCKERFILE
     echo "RUN pip install pipreqs" >> $DOCKERFILE
