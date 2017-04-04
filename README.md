@@ -1,18 +1,36 @@
 # HoneyPy-Docker
 Build a HoneyPy Docker Image
 
-To modify HoneyPy's configuration edit the two `.cfg` files in the etc directory. Then run `make build` to generate the Dockerfile and build the Docker image. For more details about HonePy see https://github.com/foospidy/HoneyPy/blob/master/README.md
+This is a quick and easy way to get up and running with HoneyPy. To learn more about HonePy see https://github.com/foospidy/HoneyPy/blob/master/README.md
 
-You can also find an image on hub.docker.com here: https://hub.docker.com/r/foospidy/honeypy/
+## Instructions
+
+### Configuration
+
+To configure HoneyPy edit the `honeypy.cfg` and `service.cfg` files in the `etc` directory. 
+
+### Creating the Container
+
+__Alpine__
+
+If you prefer running an Alpine Linux based container then run: `make build`
+
+The Alpine container image ends up being about 200MB.
+
+If you need to do a fresh rebuild run: `make build-no-cache`
+
+__Debian__
+
+If you prefer running a Debian Linux based container then run: `make build-debian`
+
+The Debian container image ends up being about 344MB.
+
+If you need to do a fresh rebuild run: `make build-debian-no-cache` 
+
+Note, there is no difference in functionality between the Alpine or Debian builds.
 
 ### Usage
 
-Build the image: `make build`
+To run HoneyPy-Docker in interactive mode run: `make run`
 
-Build a completely fresh image: `make build-fresh`
-
-Run the image in a contianer with an interactive console: `make run`
-
-Run the image in a container as a deamon: `make run-deamon`
-
-Clean up: `make clean`
+To run HoneyPy-Docker in deamon mode run: `make run-daemon`
